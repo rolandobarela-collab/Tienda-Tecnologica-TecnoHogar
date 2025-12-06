@@ -4,9 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!--Css implementado-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!--Link para implementar los Iconos-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body>
+    <!--menú-->
+
+     <nav class="navbar navbar-expand-md bg-body-tertiary">
+  <div class="container-fluid">
+
+    <!--Titulo de la Pagina-->
+    <a class="navbar-brand fw-bold" href="#" style="color: #0a2a6a;">
+  TecnoHogar
+</a>
+
+
+    <!--Boton responsive (Para cuando la pantalla se achique o demas aparezca 3 lineas y se despliegue el menu)-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!--Contenedor cuando la pantalla se vuelva mas pequeña (Icono con las tres rayitas)-->
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+    <!--Buscador Sin ninguna redirección por el momento)-->    
+    <form class="d-flex mx-auto" role="search" style="width: 40%;" onsubmit="return false;">
+  <div class="input-group">
+    <button class="input-group-text" type="submit">
+      <i class="bi bi-search"></i>
+    </button>
+    <input type="search" name="q" class="form-control" placeholder="Busca productos, marcas y más..." aria-label="Search">
+  </div>
+</form>
+
+    <!--Iconos (Login y Carrito de compras)-->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <!--Icono login-->
+          <a class="nav-link active" aria-current="page" href="#" style="color: #0a2a6a;">
+            <i class="bi bi-person-square fs-4"></i>
+        </a>
+        </li>
+
+        <li class="nav-item">
+            <!--Icono Carrito de Compras-->
+          <a class="nav-link" href="#" style="color:#0a2a6a;">
+            <i class="bi bi-cart fs-4"></i>
+        </a>
+        </li>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
