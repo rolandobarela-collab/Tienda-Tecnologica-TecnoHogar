@@ -1,0 +1,16 @@
+/*Nombre de la Pagina*/
+
+.brand-title {
+  color: #0a2a6a;
+  font-weight: bold;
+}
+
+.login-icon {
+  color: #0a2a6a !important;
+}
+
+
+/*Icono de carrito*/
+.cart-icon {
+  color: #0a2a6a;
+}

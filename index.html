@@ -6,6 +6,9 @@
     <title>Document</title>
     <!--Css implementado-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+
+
     <!--Link para implementar los Iconos-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
@@ -16,9 +19,10 @@
   <div class="container-fluid">
 
     <!--Titulo de la Pagina-->
-    <a class="navbar-brand fw-bold" href="#" style="color: #0a2a6a;">
+    <a class="navbar-brand fw-bold brand-title" href="#">
   TecnoHogar
 </a>
+
 
 
     <!--Boton responsive (Para cuando la pantalla se achique o demas aparezca 3 lineas y se despliegue el menu)-->
@@ -40,19 +44,21 @@
 </form>
 
     <!--Iconos (Login y Carrito de compras)-->
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-            <!--Icono login-->
-          <a class="nav-link active" aria-current="page" href="#" style="color: #0a2a6a;">
-            <i class="bi bi-person-square fs-4"></i>
-        </a>
-        </li>
+    <ul class="navbar-nav ms-auto">
+  <li class="nav-item">
 
+    <!-- Icono login -->
+    <a class="nav-link active login-icon" aria-current="page" href="#">
+      <i class="bi bi-person-square fs-4"></i>
+    </a>
+  </li>
+</ul>
         <li class="nav-item">
+            
             <!--Icono Carrito de Compras-->
-          <a class="nav-link" href="#" style="color:#0a2a6a;">
-            <i class="bi bi-cart fs-4"></i>
-        </a>
+    <a class="nav-link cart-icon" href="#">
+      <i class="bi bi-cart fs-4"></i>
+    </a>
         </li>
         </li>
       </ul>
