@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(245, 245, 241);
+}
+.btn-morado {
+    color: #8b5cf6;
+    border: 1px solid #8b5cf6;
+    font-weight: 500;
+}
+
+.btn-morado:hover {
+    background-color: #8b5cf6;
+    color: #fff;
+}
