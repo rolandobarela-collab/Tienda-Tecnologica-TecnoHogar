@@ -38,63 +38,7 @@
             </a>
         </div>
     </nav>
-
-    <!-- Carrusel -->
-    <div class="banner-carousel">
-
-  <!-- Slides -->
-  <div class="banner-slide active">
-    <div class="banner-text">
-      <h1>Tecnología que simplifica tu día</h1>
-      <p>Soluciones modernas para tu rutina diaria.</p>
-      <button class="banner-btn">Comprar</button>
-    </div>
-    <img src="Imagenes de prueba/Computador.jpg" class="banner-img">
-  </div>
-
-  <div class="banner-slide">
-    <div class="banner-text">
-      <h1>Innovación al alcance de todos</h1>
-      <p>Equipos diseñados para tu estilo de vida.</p>
-      <button class="banner-btn">Ver más</button>
-    </div>
-    <img src="Imagenes de prueba/Cpu.jpg" class="banner-img">
-  </div>
-
-  <div class="banner-slide">
-    <div class="banner-text">
-      <h1>Potencia y elegancia</h1>
-      <p>Rendimiento superior en cada tarea.</p>
-      <button class="banner-btn">Explorar</button>
-    </div>
-    <img src="Imagenes de prueba/Tablet.jpg" class="banner-img">
-  </div>
-
-  <!-- Botones -->
-  <button class="banner-prev">❮</button>
-  <button class="banner-next">❯</button>
-
-</div>
-
-<!-- Js que personalize -->
-<script>
-let index = 0;
-const slides = document.querySelectorAll(".banner-slide");
-
-document.querySelector(".banner-next").onclick = () => {
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-};
-
-document.querySelector(".banner-prev").onclick = () => {
-  slides[index].classList.remove("active");
-  index = (index - 1 + slides.length) % slides.length;
-  slides[index].classList.add("active");
-};
-</script>
-
-
+    
  <!-- JS (Boostrap) -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
