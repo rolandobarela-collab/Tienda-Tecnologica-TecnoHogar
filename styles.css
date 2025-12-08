@@ -77,3 +77,69 @@ a:hover {
     color: #8a45ff;   
 }
 
+
+
+
+
+
+
+
+/* ==== CARRUSEL TIPO CATÁLOGO ==== */
+
+.carousel-container {
+  padding: 60px 80px;
+}
+
+.carousel-text {
+  max-width: 40%;
+}
+
+.carousel-text h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0a0a2a;
+}
+
+.carousel-text p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.carousel-img img {
+  max-width: 450px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Botón morado estilo catálogo */
+.btn-catalog {
+  background-color: #8b5cf6;
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn-catalog:hover {
+  background-color: white;
+  color: #8b5cf6;
+  border: 2px solid #8b5cf6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .carousel-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .carousel-text, .carousel-img {
+    max-width: 100%;
+  }
+  .carousel-img img {
+    width: 100%;
+  }
+}
+
+
