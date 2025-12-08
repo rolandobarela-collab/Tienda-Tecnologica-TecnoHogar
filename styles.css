@@ -10,20 +10,70 @@
     color: #fff;
 }
 
+/* LOGIN */
+/* Pantalla completa para centrar el card */
+.full-height {
+    height: 100vh;
+}
+
+/* Icono de mostrar/ocultar contraseña */
+.toggle-password {
+    cursor: pointer;
+}
+
+/* Quitar subrayados */
+a {
+    text-decoration: none;
+}
+
+/* Link genérico */
+a:hover {
+    opacity: 0.7;
+}
+
+/* Botón login */
+.btn-login {
+    background: #8a45ff;   
+    color: white;
+    border: none;
+    padding: 10px 0;
+}
+
+/* Hover botón */
+.btn-login:hover {
+    background: #8a45ff;
+}
+
+/* Links secundarios */
+.forgot-link,
+.register-link {
+    color: #8a45ff;
+    font-weight: 500;
+}
+
+/* Hover links secundarios */
+.forgot-link:hover,
+.register-link:hover {
+    color: #8a45ff;
+}
+
 /* Boton Iniciar sesión */
 .btn-login {
-  background-color: #8b5cf6;     
+  background-color: #8a45ff;     
   color: white;
-  border: 2px solid #8b5cf6;
+  border: 2px solid #8a45ff;
   border-radius: 8px;
   font-size: 1.05rem;
   transition: .2s;
 }
-
 .btn-login:hover {
   background-color: white;
   color: #8a45ff;
   border: 2px solid #8a45ff;
 }
 
+/* Inicia sesión en tu cuenta (en morado) */
+.login-title {
+    color: #8a45ff;   
+}
 
