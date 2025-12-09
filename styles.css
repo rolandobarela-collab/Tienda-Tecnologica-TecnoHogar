@@ -77,14 +77,7 @@ a:hover {
     color: #8a45ff;   
 }
 
-
-
-
-
-
-
-
-/* ==== CARRUSEL TIPO CATÁLOGO ==== */
+/*  CARRUSEL  */
 
 .carousel-container {
   padding: 60px 80px;
@@ -128,6 +121,12 @@ a:hover {
   border: 2px solid #8b5cf6;
 }
 
+/* --- Color negro flechas Bootstrap --- */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1); 
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .carousel-container {
@@ -140,6 +139,16 @@ a:hover {
   .carousel-img img {
     width: 100%;
   }
+}
+
+/* Configuración flecha izquierda */
+.carousel-control-prev {
+  left: -50px;    
+}
+
+/* Configuración flecha derecha */
+.carousel-control-next {
+  right: -50px;  
 }
 
 
