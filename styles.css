@@ -152,3 +152,28 @@ a:hover {
 }
 
 
+
+/* Imagenes categorias*/
+
+.card-img-top {
+  height: 220px; /* mismo alto para todas */
+  width: 100%;
+  object-fit: cover;     
+  border-radius: 6px;    
+}
+
+
+/* Botones de categorias */
+.btn-primary {
+  background-color: #8a45ff;     
+  color: white;
+  border: 2px solid #8a45ff;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  transition: .2s;
+}
+.btn-primary:hover {
+  background-color: white;
+  color: #8a45ff;
+  border: 2px solid #8a45ff;
+}
