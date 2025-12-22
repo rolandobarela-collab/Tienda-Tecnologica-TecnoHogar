@@ -1,0 +1,55 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centrado todo */
+    padding: 15px 30px;
+    background-color: #3a339f; /* Color fondo */
+    color: #f3f3f3;
+    box-shadow: 0 0 10px #8b5cf6; /* sombra */
+    height: 80px;
+}
+
+.nav-titulo h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    /*color: #a855f7;*/
+    color: #fff;
+    font-weight: 900;
+    filter: drop-shadow(0 0 8px #8b5cf6);
+}
+
+.d-flex {
+    filter: drop-shadow(0 0 8px #8b5cf6);
+}
+
+.btn-morado {
+    color: #fff;
+    border-radius: 8px;
+    border: 1px solid #8b5cf6;
+    filter: drop-shadow(0 0 8px #8b5cf6);
+}
+
+.nav-right .icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 3px #8b5cf6);
+}
+
+.icon_login {
+    width: 100px;
+    margin-left: 20px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 3px #8b5cf6);
+}
+
+/*.categorias {
+    display: grid;  
+    /*grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}*/
+
+
+
+
+
