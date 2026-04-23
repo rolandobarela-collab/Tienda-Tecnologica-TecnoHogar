@@ -1,0 +1,179 @@
+
+.btn-morado {
+    color: #8b5cf6;
+    border: 1px solid #8b5cf6;
+    font-weight: 500;
+}
+
+.btn-morado:hover {
+    background-color: #8b5cf6;
+    color: #fff;
+}
+
+/* LOGIN */
+/* Pantalla completa para centrar el card */
+.full-height {
+    height: 100vh;
+}
+
+/* Icono de mostrar/ocultar contraseña */
+.toggle-password {
+    cursor: pointer;
+}
+
+/* Quitar subrayados */
+a {
+    text-decoration: none;
+}
+
+/* Link genérico */
+a:hover {
+    opacity: 0.7;
+}
+
+/* Botón login */
+.btn-login {
+    background: #8a45ff;   
+    color: white;
+    border: none;
+    padding: 10px 0;
+}
+
+/* Hover botón */
+.btn-login:hover {
+    background: #8a45ff;
+}
+
+/* Links secundarios */
+.forgot-link,
+.register-link {
+    color: #8a45ff;
+    font-weight: 500;
+}
+
+/* Hover links secundarios */
+.forgot-link:hover,
+.register-link:hover {
+    color: #8a45ff;
+}
+
+/* Boton Iniciar sesión */
+.btn-login {
+  background-color: #8a45ff;     
+  color: white;
+  border: 2px solid #8a45ff;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  transition: .2s;
+}
+.btn-login:hover {
+  background-color: white;
+  color: #8a45ff;
+  border: 2px solid #8a45ff;
+}
+
+/* Inicia sesión en tu cuenta (en morado) */
+.login-title {
+    color: #8a45ff;   
+}
+
+/*  CARRUSEL  */
+
+.carousel-container {
+  padding: 60px 80px;
+}
+
+.carousel-text {
+  max-width: 40%;
+}
+
+.carousel-text h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0a0a2a;
+}
+
+.carousel-text p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.carousel-img img {
+  max-width: 450px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Botón morado estilo catálogo */
+.btn-catalog {
+  background-color: #8b5cf6;
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn-catalog:hover {
+  background-color: white;
+  color: #8b5cf6;
+  border: 2px solid #8b5cf6;
+}
+
+/* --- Color negro flechas Bootstrap --- */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1); 
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .carousel-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .carousel-text, .carousel-img {
+    max-width: 100%;
+  }
+  .carousel-img img {
+    width: 100%;
+  }
+}
+
+/* Configuración flecha izquierda */
+.carousel-control-prev {
+  left: -50px;    
+}
+
+/* Configuración flecha derecha */
+.carousel-control-next {
+  right: -50px;  
+}
+
+
+
+/* Imagenes categorias*/
+
+.card-img-top {
+  height: 220px; /* mismo alto para todas */
+  width: 100%;
+  object-fit: cover;     
+  border-radius: 6px;    
+}
+
+
+/* Botones de categorias */
+.btn-primary {
+  background-color: #8a45ff;     
+  color: white;
+  border: 2px solid #8a45ff;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  transition: .2s;
+}
+.btn-primary:hover {
+  background-color: white;
+  color: #8a45ff;
+  border: 2px solid #8a45ff;
+}
