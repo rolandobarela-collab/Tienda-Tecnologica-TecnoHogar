@@ -4,103 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TecnoHogar</title>
-    <!--Css implementado-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
-    <!--Link para implementar los Iconos-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.min.css">
 </head>
+
 <body>
-    <!--menú-->
-    <nav class="navbar bg-body-tertiary">
-        
-        <div class="container-fluid">
 
-            <!--Contenedor icono tienda + nombre TecnoHogar; fw-bold=Texto en negrita; fs-(1-6)=tamaño del icono -->
-            <a class="navbar-brand" style="color: blueviolet;"  href="#">
-                <i class="bi bi-shop-window fs-3"></i>
-                TecnoHogar 
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" style="color: blueviolet;" href="#">
+            <i class="bi bi-shop-window fs-3"></i>
+            TecnoHogar 
+        </a>
+
+        <form class="d-flex mx-auto" role="search" style="width: 40%;" onsubmit="buscar(event)">
+            <div class="input-group">
+                <button class="btn btn-morado" type="submit">Buscar</button>
+                <input 
+                    type="search" 
+                    name="q" 
+                    class="form-control" 
+                    placeholder="Busca productos, marcas y más..." 
+                    aria-label="Search">
+            </div>
+        </form>
+
+        <div class="d-flex align-items-center">
+            <a href="Login.html">
+                <i class="bi bi-person-circle fs-3 me-4" style="color: blueviolet;"></i>
             </a>
-
-            <form class="d-flex mx-auto" role="search" style="width: 40%;" onsubmit="return false;">
-                <div class="input-group">
-                    <button class="btn btn-morado" type="submit">Buscar</button>
-                    <input type="search" name="q" class="form-control" placeholder="Busca productos, marcas y más..." aria-label="Search">
-                </div>
-            </form>
-
-            <!--Contenedor icono login + carro; fs:tamaño-icono; me-(0 - 5 + auto)espaciado-->
-            <!--m=margen; p=paddin; (t=arriba; b=abajo; s=izq; e=der; x=izq + der; y=arriba + abajo)-->
-            <a class="navbar-brand" href="#">
-                <a href="Login.html"><i class="bi bi-person-circle fs-3 me-4" style="color: blueviolet;" ></i></a>
-                <i class="bi bi-cart3 fs-3  me-2" style="color: blueviolet;""></i>
-                
-            </a>
+            
+            <button type="button" class="btn border-0 position-relative p-0" data-bs-toggle="modal" data-bs-target="#modalCarrito">
+                <i class="bi bi-cart3 fs-3" style="color: blueviolet;"></i>
+                <span id="carrito-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7rem;">
+                    0
+                </span>
+            </button>
         </div>
-    </nav>
 
-    <!-- Carrusel -->
-     
+    </div>
+</nav>
+
 <div id="catalogCarousel" class="carousel slide" data-bs-ride="carousel">
-
   <div class="carousel-inner">
 
-    <!-- ITEM 1 -->
     <div class="carousel-item active">
       <div class="carousel-container d-flex align-items-center justify-content-between">
-
-        <!-- Texto -->
         <div class="carousel-text">
           <h2>Tecnología que simplifica tu día</h2>
           <p>Laptops modernas diseñadas para potenciar tu productividad.</p>
           <button class="btn btn-catalog">Saber mas...</button>
         </div>
-
-        <!-- Imagen -->
         <div class="carousel-img">
           <img src="Imagenes Carrusel/Laptops.png" alt="Laptop">
         </div>
-
       </div>
     </div>
 
-    <!-- ITEM 2 -->
     <div class="carousel-item">
       <div class="carousel-container d-flex align-items-center justify-content-between">
-
         <div class="carousel-text">
           <h2>Potencia en tus manos</h2>
           <p>Equipos de alto rendimiento para gaming y trabajo.</p>
           <button class="btn btn-catalog">Ver ofertas</button>
         </div>
-
         <div class="carousel-img">
           <img src="Imagenes Carrusel/Cpu.png" alt="PC Gamer">
         </div>
-
       </div>
     </div>
 
-    <!-- ITEM 3 -->
     <div class="carousel-item">
       <div class="carousel-container d-flex align-items-center justify-content-between">
-
         <div class="carousel-text">
           <h2>Conéctate desde cualquier lugar</h2>
           <p>Tablets ligeras y rápidas para estudiar y trabajar.</p>
           <button class="btn btn-catalog">Saber mas...</button>
         </div>
-
         <div class="carousel-img">
           <img src="Imagenes Carrusel/Tablets.png" alt="Tablet">
         </div>
-
       </div>
     </div>
 
   </div>
 
-  <!-- Controles -->
   <button class="carousel-control-prev" type="button" data-bs-target="#catalogCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon"></span>
   </button>
@@ -108,76 +101,66 @@
   <button class="carousel-control-next" type="button" data-bs-target="#catalogCarousel" data-bs-slide="next">
     <span class="carousel-control-next-icon"></span>
   </button>
-
 </div>
 
-<!-- Categorías -->
-
-<!-- Título -->
 <div class="container mt-5">
   <h2 class="text-center fw-bold mb-4">Categorías</h2>
 </div>
 
-<!-- Grid de categorías  -->
 <div class="container mt-5">
   <div class="row g-4">
 
-    <!-- Laptops -->
     <div class="col-md-6">
       <div class="card border-0 text-center h-100">
-        <img src="Imagenes Categorias/Laptops.jpeg" class="card-img-top" alt="Laptops">
+        <img src="Imagenes Categorias/Laptops.jpeg" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">Laptops</h5>
-          <p class="card-text">Potencia, portabilidad y diseño para tu día a día.</p>
-          <a href="#" class="btn btn-primary">Quiero ver más...</a>
+          <h5>Laptops</h5>
+          <p>Potencia, portabilidad y diseño.</p>
+          <a href="laptops.html" class="btn btn-primary">Quiero ver más...</a>
         </div>
       </div>
     </div>
 
-    <!-- Componentes -->
     <div class="col-md-6">
       <div class="card border-0 text-center h-100">
-        <img src="Imagenes Categorias/Componentes.jpeg" class="card-img-top" alt="Componentes">
+        <img src="Imagenes Categorias/Componentes.jpeg" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">Componentes (RAM, SSD, tarjetas madre)</h5>
-          <p class="card-text">Componentes de alto rendimiento.</p>
-          <a href="#" class="btn btn-primary">Quiero ver más...</a>
+          <h5>Componentes</h5>
+          <p>Alto rendimiento.</p>
+          <a href="componentes.html" class="btn btn-primary">Quiero ver más...</a>
         </div>
       </div>
     </div>
 
-    <!-- Audífonos -->
     <div class="col-md-6">
       <div class="card border-0 text-center h-100">
-        <img src="Imagenes Categorias/Audifonos.jpeg" class="card-img-top" alt="Audífonos">
+        <img src="Imagenes Categorias/Audifonos.jpeg" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">Audífonos y periféricos</h5>
-          <p class="card-text">Rendimiento y comodidad en cada detalle.</p>
-          <a href="#" class="btn btn-primary">Quiero ver más...</a>
+          <h5>Audífonos</h5>
+          <p>Comodidad total.</p>
+          <a href="audifonos.html" class="btn btn-primary">Quiero ver más...</a>
         </div>
       </div>
     </div>
 
-    <!-- Monitores -->
     <div class="col-md-6">
       <div class="card border-0 text-center h-100">
-        <img src="Imagenes Categorias/Monitores, cables y accesorios.jpeg" class="card-img-top" alt="Monitores">
+        <img src="Imagenes Categorias/Monitores, cables y accesorios.jpeg" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">Monitores, cables y accesorios</h5>
-          <p class="card-text">Conecta, amplía y mejora tu setup.</p>
-          <a href="#" class="btn btn-primary">Quiero ver más...</a>
+          <h5>Accesorios</h5>
+          <p>Mejora tu setup.</p>
+          <a href="componentes.html" class="btn btn-primary">Quiero ver más...</a>
         </div>
       </div>
     </div>
 
-    <!-- Tablets -->
     <div class="col-md-6 mx-auto">
       <div class="card border-0 text-center h-100">
-        <img src="Imagenes Categorias/Tablets.jpeg" class="card-img-top" alt="Tablets">
+        <img src="Imagenes Categorias/Tablets.jpeg" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">Tablets y dispositivos smart</h5>
-          <p class="card-text">Versatilidad y tecnología al alcance de tu mano.</p>
-          <a href="#" class="btn btn-primary">Quiero ver más...</a>
+          <h5>Tablets</h5>
+          <p>Versatilidad total.</p>
+          <a href="tablets.html" class="btn btn-primary">Quiero ver más...</a>
         </div>
       </div>
     </div>
@@ -185,12 +168,66 @@
   </div>
 </div>
 
- <!-- JS (Boostrap) -->
- <div style="margin-top:30px; padding:15px; border:2px solid black;">
-    <h2>Prueba de cambios</h2>
-    <p>Este texto fue agregado por Santiago para probar Git.</p>
-    <button onclick="alert('Funciona Git 🚀')">Probar botón</button>
+<div class="modal fade" id="modalCarrito" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Mi Carrito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Cant.</th>
+              <th>Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="items-carrito"></tbody>
+        </table>
+        <div class="text-end">
+          <h4>Total: $<span id="total-carrito">0</span></h4>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" id="vaciar-carrito">Vaciar Carrito</button>
+        <button type="button" class="btn btn-primary" id="btn-pagar" style="background-color: blueviolet; border:none;">Proceder al Pago</button>
+      </div>
+    </div>
+  </div>
 </div>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="Javascript/carrito.js"></script>
+
+<script>
+function buscar(e){
+  e.preventDefault();
+  let valor = document.querySelector("input[name='q']").value.toLowerCase().trim();
+  if(valor === ""){
+    alert("Escribe algo para buscar");
+    return;
+  }
+  if(valor.includes("laptop")){
+    window.location.href = "laptops.html";
+  } 
+  else if(valor.includes("tablet")){
+    window.location.href = "tablets.html";
+  } 
+  else if(valor.includes("audifono") || valor.includes("audífono")){
+    window.location.href = "audifonos.html";
+  } 
+  else if(valor.includes("componente") || valor.includes("ram") || valor.includes("ssd")){
+    window.location.href = "componentes.html";
+  } 
+  else {
+    alert("No se encontraron productos");
+  }
+}
+</script>
+
 </body>
 </html>
