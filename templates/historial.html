@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Pedidos - TecnoHogar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="bg-light">
+
+<nav class="navbar bg-body-tertiary shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand" style="color: blueviolet; font-weight: bold;" href="/">
+            <i class="bi bi-shop-window fs-3"></i> TecnoHogar
+        </a>
+        <div class="d-flex align-items-center">
+            {% if usuario_logueado %}
+                <span style="color: blueviolet;" class="me-3">Hola, {{ request.user.first_name }}</span>
+                <a href="/logout/" class="btn btn-outline-danger btn-sm me-3">Cerrar sesión</a>
+            {% else %}
+                <a href="/login/"><i class="bi bi-person-circle fs-3 me-4" style="color: blueviolet;"></i></a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+  <h2 class="fw-bold mb-4">Mis Pedidos</h2>
+
+  {% if pedidos %}
+    {% for pedido in pedidos %}
+      <div class="card shadow-sm border-0 rounded-4 mb-4">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+          <span class="fw-bold">Pedido #{{ pedido.id }}</span>
+          <span class="badge bg-secondary">{{ pedido.estado }}</span>
+          <span class="text-muted small">{{ pedido.fecha|date:"d/m/Y H:i" }}</span>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr><th>Producto</th><th>Cantidad</th><th>Precio unitario</th><th>Subtotal</th></tr>
+            </thead>
+            <tbody>
+              {% for item in pedido.items.all %}
+              <tr>
+                <td>{{ item.producto.nombre }}</td>
+                <td>{{ item.cantidad }}</td>
+                <td>${{ item.precio_unitario|floatformat:0 }}</td>
+                <td>${{ item.subtotal|floatformat:0 }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <div class="text-end fw-bold">Total: ${{ pedido.total|floatformat:0 }}</div>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="text-center text-muted mt-5">
+      <i class="bi bi-bag-x fs-1"></i>
+      <p class="mt-3">No tienes pedidos aún.</p>
+      <a href="/" class="btn btn-primary" style="background-color: blueviolet; border:none;">Ir a comprar</a>
+    </div>
+  {% endif %}
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
