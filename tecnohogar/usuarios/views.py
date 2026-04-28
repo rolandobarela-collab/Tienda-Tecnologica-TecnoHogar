@@ -4,6 +4,10 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_encode
+from django.utils.encoding import force_bytes
 from .models import Producto, Pedido, ItemPedido
 import json
 
@@ -13,49 +17,49 @@ def index(request):
     })
 
 def audifonos(request):
-    productos = Producto.objects.filter(categoria='audifonos', disponible=True)
+    productos = Producto.objects.filter(categoria='audifonos')
     return render(request, 'audifonos.html', {
         'productos': productos,
         'usuario_logueado': request.user.is_authenticated
     })
 
 def componentes(request):
-    productos = Producto.objects.filter(categoria='componentes', disponible=True)
+    productos = Producto.objects.filter(categoria='componentes')
     return render(request, 'componentes.html', {
         'productos': productos,
         'usuario_logueado': request.user.is_authenticated
     })
 
 def laptops(request):
-    productos = Producto.objects.filter(categoria='laptops', disponible=True)
+    productos = Producto.objects.filter(categoria='laptops')
     return render(request, 'laptops.html', {
         'productos': productos,
         'usuario_logueado': request.user.is_authenticated
     })
 
 def ofertapc(request):
-    productos = Producto.objects.filter(categoria='laptops', disponible=True)
+    productos = Producto.objects.filter(categoria='laptops')
     return render(request, 'ofertapc.html', {
         'productos': productos,
         'usuario_logueado': request.user.is_authenticated
     })
 
 def ofertapc_gamer(request):
-    productos = Producto.objects.filter(categoria='componentes', disponible=True)
+    productos = Producto.objects.filter(categoria='componentes')
     return render(request, 'ofertapcGamer.html', {
         'productos': productos,
         'usuario_logueado': request.user.is_authenticated
     })
 
 def oferta_tablet(request):
-    productos = Producto.objects.filter(categoria='tablets', disponible=True)
+    productos = Producto.objects.filter(categoria='tablets')
     return render(request, 'ofertaTablet.html', {
         'productos': productos,
         'usuario_logueado': request.user.is_authenticated
     })
 
 def tablets(request):
-    productos = Producto.objects.filter(categoria='tablets', disponible=True)
+    productos = Producto.objects.filter(categoria='tablets')
     return render(request, 'tablets.html', {
         'productos': productos,
         'usuario_logueado': request.user.is_authenticated
@@ -109,6 +113,26 @@ def logout_view(request):
     return redirect('index')
 
 def recuperar(request):
+    if request.method == 'POST':
+        correo = request.POST.get('correo')
+        try:
+            usuario = User.objects.get(email=correo)
+            token = default_token_generator.make_token(usuario)
+            uid = urlsafe_base64_encode(force_bytes(usuario.pk))
+            link = f"http://127.0.0.1:8000/reset/{uid}/{token}/"
+
+            send_mail(
+                subject='Recuperar contraseña - TecnoHogar',
+                message=f'Hola {usuario.first_name},\n\nHaz click en el siguiente enlace para recuperar tu contraseña:\n\n{link}\n\nSi no solicitaste esto, ignora este mensaje.',
+                from_email='roliruana@gmail.com',
+                recipient_list=[correo],
+                fail_silently=False,
+            )
+            messages.success(request, 'Te enviamos un correo con instrucciones.')
+        except User.DoesNotExist:
+            messages.error(request, 'No existe una cuenta con ese correo.')
+        return redirect('recuperar')
+
     return render(request, 'recuperar.html')
 
 def sesion_activa(request):
@@ -116,12 +140,18 @@ def sesion_activa(request):
 
 def buscar(request):
     query = request.GET.get('q', '')
-    productos = Producto.objects.filter(nombre__icontains=query, disponible=True) if query else []
+    productos = Producto.objects.filter(nombre__icontains=query) if query else []
     return render(request, 'buscar.html', {
         'productos': productos,
         'query': query,
         'usuario_logueado': request.user.is_authenticated
     })
+
+def stock_producto(request, nombre):
+    producto = Producto.objects.filter(nombre=nombre).first()
+    if producto:
+        return JsonResponse({'stock': producto.stock})
+    return JsonResponse({'stock': 0})
 
 @login_required
 def procesar_pago(request):
@@ -131,18 +161,32 @@ def procesar_pago(request):
         if not carrito:
             return JsonResponse({'error': 'Carrito vacío'}, status=400)
 
+        for item in carrito:
+            producto = Producto.objects.filter(nombre=item['nombre']).first()
+            if producto and int(item['cantidad']) > producto.stock:
+                return JsonResponse({
+                    'error': f"Solo hay {producto.stock} unidades disponibles de {producto.nombre}"
+                }, status=400)
+
         pedido = Pedido.objects.create(
             usuario=request.user,
-            total=sum(item['precio'] * item['cantidad'] for item in carrito)
+            total=sum(int(item['precio']) * int(item['cantidad']) for item in carrito)
         )
 
         for item in carrito:
             producto = Producto.objects.filter(nombre=item['nombre']).first()
+
+            if producto:
+                producto.stock -= int(item['cantidad'])
+                if producto.stock <= 0:
+                    producto.stock = 0
+                producto.save()
+
             ItemPedido.objects.create(
                 pedido=pedido,
                 producto=producto,
-                cantidad=item['cantidad'],
-                precio_unitario=item['precio']
+                cantidad=int(item['cantidad']),
+                precio_unitario=int(item['precio'])
             )
 
         return JsonResponse({'ok': True, 'pedido_id': pedido.id})

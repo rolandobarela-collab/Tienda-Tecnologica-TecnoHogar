@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from usuarios import views
 
 urlpatterns = [
@@ -21,4 +22,7 @@ urlpatterns = [
     path('historial/', views.historial, name='historial'),
     path('confirmacion/', views.confirmacion, name='confirmacion'),
     path('buscar/', views.buscar, name='buscar'),
+    path('stock/<str:nombre>/', views.stock_producto, name='stock_producto'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='reset_confirm.html'), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='reset_done.html'), name='password_reset_complete'),
 ]

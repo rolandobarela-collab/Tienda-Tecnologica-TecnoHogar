@@ -94,11 +94,13 @@ LOGIN_URL = 'login'
 # DEFAULT
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CONFIGURACIÓN DE CORREO
+# Correo
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'roliruana@gmail.com'  # correo Gmail
-EMAIL_HOST_PASSWORD = 'Rolandobarelanumero5'  # contraseña de app
+EMAIL_HOST_USER = 'roliruana@gmail.com'
+EMAIL_HOST_PASSWORD = 'ehwi yaqc evym ijuf'
 DEFAULT_FROM_EMAIL = 'roliruana@gmail.com'
+
+
