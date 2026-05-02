@@ -101,6 +101,8 @@ def login_view(request):
 
         if usuario is not None:
             login(request, usuario)
+            if not usuario.is_staff:
+                request.session['es_admin'] = False
             return redirect('index')
         else:
             messages.error(request, 'Correo o contraseña incorrectos')
