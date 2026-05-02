@@ -45,7 +45,7 @@
                 <a href="/login/" class="btn btn-outline-secondary btn-sm me-2">
                     <i class="bi bi-person"></i> Iniciar sesión
                 </a>
-                <a href="/admin/" class="btn btn-warning btn-sm me-3">
+                <a href="/admin/login/?next=/admin/" class="btn btn-warning btn-sm me-3">
                     <i class="bi bi-gear"></i> Administrador
                 </a>
             {% endif %}
@@ -58,7 +58,7 @@
     </div>
 </nav>
 
-<div id="catalogCarousel" class="carousel slide" data-bs-ride="carousel">
+<div id="catalogCarousel" class="carousel slide carousel-fade carousel-dark" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="carousel-container d-flex align-items-center justify-content-between">
@@ -72,6 +72,7 @@
         </div>
       </div>
     </div>
+
     <div class="carousel-item">
       <div class="carousel-container d-flex align-items-center justify-content-between">
         <div class="carousel-text">
@@ -84,6 +85,7 @@
         </div>
       </div>
     </div>
+
     <div class="carousel-item">
       <div class="carousel-container d-flex align-items-center justify-content-between">
         <div class="carousel-text">
@@ -97,6 +99,15 @@
       </div>
     </div>
   </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#catalogCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#catalogCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
 </div>
 
 <div class="container mt-5">
