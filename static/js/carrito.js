@@ -140,7 +140,7 @@ document.getElementById("btn-pagar")?.addEventListener("click", () => {
                         actualizarTodo();
                         window.location.href = '/confirmacion/?pedido_id=' + data.pedido_id;
                     } else if (data.error) {
-                        alert(data.error); // ✅ muestra alerta si hay error de stock
+                        alert(data.error); // muestra alerta si hay error de stock
                     }
                 });
             }
