@@ -5,8 +5,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SEGURIDAD
 SECRET_KEY = 'django-insecure-4$jhop^&1@abi=c)x36_u*=jsnz$*)5cvzj+k@!3_+j!(-d#*z'
-DEBUG = True
-ALLOWED_HOSTS = []
+
+DEBUG = False
+
+ALLOWED_HOSTS = ['.onrender.com']
+
 
 # APLICACIONES
 INSTALLED_APPS = [
@@ -17,12 +20,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'usuarios',  # MI APP
+    'usuarios',
 ]
+
 
 # MIDDLEWARE
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -31,9 +38,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'tecnohogar.urls'
 
-# TEMPLATES (CONECTA TU FRONTEND)
+
+# TEMPLATES
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -49,7 +58,9 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'tecnohogar.wsgi.application'
+
 
 # BASE DE DATOS
 DATABASES = {
@@ -58,6 +69,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 # VALIDACIONES
 AUTH_PASSWORD_VALIDATORS = [
@@ -75,26 +87,36 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # IDIOMA Y ZONA
 LANGUAGE_CODE = 'es-co'
+
 TIME_ZONE = 'America/Bogota'
+
 USE_I18N = True
+
 USE_TZ = True
 
-# ARCHIVOS ESTÁTICOS (CSS, JS, IMÁGENES)
+
+# ARCHIVOS ESTÁTICOS
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR.parent / "static",
 ]
 
-# LOGIN (para más adelante)
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+# LOGIN
 LOGIN_URL = 'login'
+
 
 # DEFAULT
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Correo
+
+# CORREO
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -102,5 +124,3 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'roliruana@gmail.com'
 EMAIL_HOST_PASSWORD = 'ehwi yaqc evym ijuf'
 DEFAULT_FROM_EMAIL = 'roliruana@gmail.com'
-
-
