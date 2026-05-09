@@ -1,0 +1,10 @@
+{
+  "builds": [{
+    "src": "tecnohogar/wsgi.py",
+    "use": "@vercel/python"
+  }],
+  "routes": [{
+    "src": "/(.*)",
+    "dest": "tecnohogar/wsgi.py"
+  }]
+}
