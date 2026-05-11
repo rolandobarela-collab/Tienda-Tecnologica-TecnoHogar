@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,7 +10,6 @@
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body class="bg-light">
-
 <nav class="navbar bg-body-tertiary shadow-sm">
     <div class="container-fluid">
         <a class="navbar-brand" style="color: blueviolet; font-weight: bold;" href="/">
@@ -25,10 +25,13 @@
         </div>
     </div>
 </nav>
-
 <div class="container mt-5">
+  <div class="mb-4">
+    <a href="/" class="btn btn-outline-secondary">
+      <i class="bi bi-arrow-left me-2"></i>Volver al Inicio
+    </a>
+  </div>
   <h2 class="fw-bold mb-4">Mis Pedidos</h2>
-
   {% if pedidos %}
     {% for pedido in pedidos %}
       <div class="card shadow-sm border-0 rounded-4 mb-4">
@@ -47,13 +50,13 @@
               <tr>
                 <td>{{ item.producto.nombre }}</td>
                 <td>{{ item.cantidad }}</td>
-                <td>${{ item.precio_unitario|floatformat:0 }}</td>
-                <td>${{ item.subtotal|floatformat:0 }}</td>
+                <td>${{ item.precio_unitario|intcomma }}</td>
+                <td>${{ item.subtotal|intcomma }}</td>
               </tr>
               {% endfor %}
             </tbody>
           </table>
-          <div class="text-end fw-bold">Total: ${{ pedido.total|floatformat:0 }}</div>
+          <div class="text-end fw-bold">Total: ${{ pedido.total|intcomma }}</div>
         </div>
       </div>
     {% endfor %}
@@ -65,7 +68,6 @@
     </div>
   {% endif %}
 </div>
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.min.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

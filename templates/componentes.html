@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -55,7 +56,7 @@
         {% if producto.descripcion %}
           <p class="text-muted small">{{ producto.descripcion }}</p>
         {% endif %}
-        <p class="fw-bold text-primary">${{ producto.precio|floatformat:0 }}</p>
+        <p class="fw-bold text-primary">${{ producto.precio|intcomma }}</p>
         {% if producto.stock > 0 %}
           <button onclick="agregarAlCarrito('{{ producto.nombre }}', '{{ producto.precio }}')" class="btn btn-primary" style="background-color: blueviolet; border:none;">
             Agregar al carrito

@@ -121,7 +121,7 @@ def recuperar(request):
             usuario = User.objects.get(email=correo)
             token = default_token_generator.make_token(usuario)
             uid = urlsafe_base64_encode(force_bytes(usuario.pk))
-            link = f"http://127.0.0.1:8000/reset/{uid}/{token}/"
+            link = f"https://tienda-tecnologica-tecnohogar-s-a-s.onrender.com/reset/{uid}/{token}/"
 
             send_mail(
                 subject='Recuperar contraseña - TecnoHogar',
