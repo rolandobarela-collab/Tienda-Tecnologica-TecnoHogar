@@ -142,7 +142,13 @@ def sesion_activa(request):
 
 def buscar(request):
     query = request.GET.get('q', '')
-    productos = Producto.objects.filter(nombre__icontains=query) if query else []
+    if query:
+        productos = (
+            Producto.objects.filter(nombre__icontains=query) |
+            Producto.objects.filter(categoria__icontains=query)
+        ).distinct()
+    else:
+        productos = []
     return render(request, 'buscar.html', {
         'productos': productos,
         'query': query,
