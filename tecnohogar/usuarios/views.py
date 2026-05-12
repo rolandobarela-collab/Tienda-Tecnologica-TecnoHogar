@@ -119,22 +119,27 @@ def recuperar(request):
         correo = request.POST.get('correo')
         try:
             usuario = User.objects.get(email=correo)
+            
+            # --- AQUÍ ESTÁ LO QUE FALTABA ---
             token = default_token_generator.make_token(usuario)
             uid = urlsafe_base64_encode(force_bytes(usuario.pk))
-            link = f"https://tienda-tecnologica-tecnohogar-s-a-s.onrender.com/reset/{uid}/{token}/"
+            # -------------------------------
+
+            link = request.build_absolute_uri(f"/reset/{uid}/{token}/")
 
             send_mail(
                 subject='Recuperar contraseña - TecnoHogar',
-                message=f'Hola {usuario.first_name},\n\nHaz click en el siguiente enlace para recuperar tu contraseña:\n\n{link}\n\nSi no solicitaste esto, ignora este mensaje.',
-                from_email='roliruana@gmail.com',
+                message=f'Hola {usuario.first_name}, haz clic en el siguiente enlace para restablecer tu contraseña:\n\n{link}',
+                from_email=None, 
                 recipient_list=[correo],
                 fail_silently=False,
             )
-            messages.success(request, 'Te enviamos un correo con instrucciones.')
+            messages.success(request, 'Te hemos enviado un correo con las instrucciones.')
         except User.DoesNotExist:
-            messages.error(request, 'No existe una cuenta con ese correo.')
+            messages.error(request, 'No existe ninguna cuenta asociada a este correo.')
+        
         return redirect('recuperar')
-
+    
     return render(request, 'recuperar.html')
 
 def sesion_activa(request):
