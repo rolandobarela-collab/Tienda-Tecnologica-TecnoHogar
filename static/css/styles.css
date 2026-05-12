@@ -1,4 +1,3 @@
-
 .btn-morado {
     color: #8b5cf6;
     border: 1px solid #8b5cf6;
@@ -11,27 +10,22 @@
 }
 
 /* LOGIN */
-/* Pantalla completa para centrar el card */
 .full-height {
     height: 100vh;
 }
 
-/* Icono de mostrar/ocultar contraseña */
 .toggle-password {
     cursor: pointer;
 }
 
-/* Quitar subrayados */
 a {
     text-decoration: none;
 }
 
-/* Link genérico */
 a:hover {
     opacity: 0.7;
 }
 
-/* Botón login */
 .btn-login {
     background: #8a45ff;   
     color: white;
@@ -39,25 +33,21 @@ a:hover {
     padding: 10px 0;
 }
 
-/* Hover botón */
 .btn-login:hover {
     background: #8a45ff;
 }
 
-/* Links secundarios */
 .forgot-link,
 .register-link {
     color: #8a45ff;
     font-weight: 500;
 }
 
-/* Hover links secundarios */
 .forgot-link:hover,
 .register-link:hover {
     color: #8a45ff;
 }
 
-/* Boton Iniciar sesión */
 .btn-login {
   background-color: #8a45ff;     
   color: white;
@@ -72,13 +62,11 @@ a:hover {
   border: 2px solid #8a45ff;
 }
 
-/* Inicia sesión en tu cuenta (en morado) */
 .login-title {
     color: #8a45ff;   
 }
 
-/*  CARRUSEL  */
-
+/* CARRUSEL */
 .carousel-container {
   padding: 60px 80px;
 }
@@ -105,14 +93,17 @@ a:hover {
   border-radius: 8px;
 }
 
-/* Botón morado estilo catálogo */
 .btn-catalog {
   background-color: #8b5cf6;
-  border: none;
+  border: 2px solid #8b5cf6;
   color: white;
-  padding: 10px 22px;
-  border-radius: 8px;
+  padding: 12px 28px;
+  border-radius: 25px;
   font-weight: 600;
+  font-size: 1rem;
+  transition: .2s;
+  margin-top: 10px;
+  display: inline-block;
 }
 
 .btn-catalog:hover {
@@ -121,7 +112,6 @@ a:hover {
   border: 2px solid #8b5cf6;
 }
 
-/* --- Color negro flechas Bootstrap --- */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   filter: invert(1); 
@@ -141,27 +131,21 @@ a:hover {
   }
 }
 
-/* Configuración flecha izquierda */
 .carousel-control-prev {
-  left: -50px;    
+  left: 10px;    
 }
 
-/* Configuración flecha derecha */
 .carousel-control-next {
-  right: -50px;  
+  right: 10px;  
 }
 
-
-
-/* Imagenes categorias*/
-
+/* Imagenes categorias */
 .card-img-top {
-  height: 220px; /* mismo alto para todas */
+  height: 220px;
   width: 100%;
   object-fit: cover;     
   border-radius: 6px;    
 }
-
 
 /* Botones de categorias */
 .btn-primary {
