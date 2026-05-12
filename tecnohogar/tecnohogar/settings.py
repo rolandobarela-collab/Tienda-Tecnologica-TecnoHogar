@@ -6,8 +6,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SEGURIDAD
 SECRET_KEY = 'django-insecure-4$jhop^&1@abi=c)x36_u*=jsnz$*)5cvzj+k@!3_+j!(-d#*z'
-DEBUG = False
-ALLOWED_HOSTS = ['*']
+DEBUG = True
+ALLOWED_HOSTS = [
+    'tecnohogar-kzr5.onrender.com',
+    '.onrender.com',
+]
 
 # APLICACIONES
 INSTALLED_APPS = [
@@ -89,14 +92,14 @@ LOGIN_URL = 'login'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # EMAIL CONFIG
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_TIMEOUT = 10
 
-EMAIL_HOST_USER = os.environ.get('roliruana@gmail.com')
-EMAIL_HOST_PASSWORD = os.environ.get('dfa ftjr wkqa ljyu')
+# Aquí pedimos las variables por su "nombre clave"
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
