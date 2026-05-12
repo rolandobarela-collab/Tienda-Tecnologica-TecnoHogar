@@ -121,7 +121,11 @@ def recuperar(request):
             usuario = User.objects.get(email=correo)
             token = default_token_generator.make_token(usuario)
             uid = urlsafe_base64_encode(force_bytes(usuario.pk))
+<<<<<<< HEAD
             link = f"http://127.0.0.1:8000/reset/{uid}/{token}/"
+=======
+            link = f"https://tienda-tecnologica-tecnohogar-s-a-s.onrender.com/reset/{uid}/{token}/"
+>>>>>>> origin/rolo
 
             send_mail(
                 subject='Recuperar contraseña - TecnoHogar',
@@ -142,7 +146,17 @@ def sesion_activa(request):
 
 def buscar(request):
     query = request.GET.get('q', '')
+<<<<<<< HEAD
     productos = Producto.objects.filter(nombre__icontains=query) if query else []
+=======
+    if query:
+        productos = (
+            Producto.objects.filter(nombre__icontains=query) |
+            Producto.objects.filter(categoria__icontains=query)
+        ).distinct()
+    else:
+        productos = []
+>>>>>>> origin/rolo
     return render(request, 'buscar.html', {
         'productos': productos,
         'query': query,

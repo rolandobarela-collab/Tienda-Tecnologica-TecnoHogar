@@ -1,4 +1,8 @@
 {% load static %}
+<<<<<<< HEAD
+=======
+{% load humanize %}
+>>>>>>> origin/rolo
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -58,12 +62,30 @@
       {% for producto in productos %}
         <div class="col-md-4">
           <div class="card p-3 shadow-sm border-0">
+<<<<<<< HEAD
             <h5>{{ producto.nombre }}</h5>
             <p class="fw-bold text-primary">${{ producto.precio|floatformat:0 }}</p>
             <p class="text-muted small">Stock: {{ producto.stock }}</p>
             <button onclick="agregarAlCarrito('{{ producto.nombre }}', '{{ producto.precio }}')" class="btn btn-primary" style="background-color: blueviolet; border:none;">
               Agregar al carrito
             </button>
+=======
+            {% if producto.imagen %}
+              <img src="{% static 'img/Imagenes Productos/' %}{{ producto.imagen }}" class="card-img-top mb-3" alt="{{ producto.nombre }}" style="height: 200px; object-fit: contain;">
+            {% endif %}
+            <h5>{{ producto.nombre }}</h5>
+            {% if producto.descripcion %}
+              <p class="text-muted small">{{ producto.descripcion }}</p>
+            {% endif %}
+            <p class="fw-bold text-primary">${{ producto.precio|intcomma }}</p>
+            {% if producto.stock > 0 %}
+              <button onclick="agregarAlCarrito('{{ producto.nombre }}', '{{ producto.precio }}')" class="btn btn-primary" style="background-color: blueviolet; border:none;">
+                Agregar al carrito
+              </button>
+            {% else %}
+              <button class="btn btn-secondary" disabled>Agotado</button>
+            {% endif %}
+>>>>>>> origin/rolo
           </div>
         </div>
       {% endfor %}
