@@ -132,11 +132,13 @@ a:hover {
 }
 
 .carousel-control-prev {
-  left: 10px;    
+  left: 0;
+  width: 40px;
 }
 
 .carousel-control-next {
-  right: 10px;  
+  right: 0;
+  width: 40px;
 }
 
 /* Imagenes categorias */
