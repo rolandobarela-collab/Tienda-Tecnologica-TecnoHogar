@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'usuarios',
+    'anymail',
 ]
 
 # MIDDLEWARE
@@ -91,15 +92,13 @@ LOGIN_URL = 'login'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# EMAIL CONFIG
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_TIMEOUT = 10
+# EMAIL CONFIG CON ANYMAIL Y BREVO
+EMAIL_BACKEND = "anymail.backends.brevo.EmailBackend"
 
-# Aquí pedimos las variables por su "nombre clave"
-EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
+ANYMAIL = {
+    # Render leerá la llave desde las variables de entorno
+    "BREVO_API_KEY": os.environ.get("BREVO_API_KEY"),
+}
 
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# El correo desde el que se enviarán los mensajes (debe ser el que usaste para registrarte en Brevo)
+DEFAULT_FROM_EMAIL = "roliruana@gmail.com"
