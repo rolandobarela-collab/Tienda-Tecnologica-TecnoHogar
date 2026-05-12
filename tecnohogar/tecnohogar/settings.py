@@ -72,24 +72,31 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     BASE_DIR.parent / "static",
 ]
+
 STATIC_ROOT = BASE_DIR.parent / 'staticfiles'
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR.parent, 'media')
 
 LOGIN_URL = 'login'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# EMAIL CONFIG
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+EMAIL_TIMEOUT = 10
 
-EMAIL_HOST_USER = 'roliruana@gmail.com'
-EMAIL_HOST_PASSWORD = 'dfa ftjr wkqa ljyu'
+EMAIL_HOST_USER = os.environ.get('roliruana@gmail.com')
+EMAIL_HOST_PASSWORD = os.environ.get('dfa ftjr wkqa ljyu')
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
