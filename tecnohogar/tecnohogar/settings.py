@@ -101,4 +101,4 @@ ANYMAIL = {
 }
 
 # El correo desde el que se enviarán los mensajes (debe ser el que usaste para registrarte en Brevo)
-DEFAULT_FROM_EMAIL = "roliruana@gmail.com"
+DEFAULT_FROM_EMAIL = "santiagoan.alfonsora@ecci.edu.co"
