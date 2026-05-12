@@ -121,16 +121,13 @@ def recuperar(request):
             usuario = User.objects.get(email=correo)
             token = default_token_generator.make_token(usuario)
             uid = urlsafe_base64_encode(force_bytes(usuario.pk))
-            
-            # MAGIA AQUÍ: Construye la URL dinámicamente. 
-            # Si estás en tu PC usa 127.0.0.1, si estás en Render usa el dominio de Render automáticamente.
-            link = request.build_absolute_uri(f"/reset/{uid}/{token}/")
+            link = f"https://tienda-tecnologica-tecnohogar-s-a-s.onrender.com/reset/{uid}/{token}/"
 
             send_mail(
                 subject='Recuperar contraseña - TecnoHogar',
                 message=f'Hola {usuario.first_name},\n\nHaz click en el siguiente enlace para recuperar tu contraseña:\n\n{link}\n\nSi no solicitaste esto, ignora este mensaje.',
-                from_email='roliruana@gmail.com', # Esto se queda así, es el cartero.
-                recipient_list=[correo], # Aquí se le envía al usuario.
+                from_email='roliruana@gmail.com',
+                recipient_list=[correo],
                 fail_silently=False,
             )
             messages.success(request, 'Te enviamos un correo con instrucciones.')
@@ -146,14 +143,12 @@ def sesion_activa(request):
 def buscar(request):
     query = request.GET.get('q', '')
     if query:
-        # Aquí también arreglé un conflicto de Git para que busque por nombre O categoría
         productos = (
             Producto.objects.filter(nombre__icontains=query) |
             Producto.objects.filter(categoria__icontains=query)
         ).distinct()
     else:
         productos = []
-        
     return render(request, 'buscar.html', {
         'productos': productos,
         'query': query,

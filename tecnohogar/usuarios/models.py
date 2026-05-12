@@ -14,11 +14,7 @@ class Producto(models.Model):
     precio = models.IntegerField()
     stock = models.IntegerField(default=0)
     categoria = models.CharField(max_length=50, choices=CATEGORIAS)
-<<<<<<< HEAD
-    imagen = models.ImageField(upload_to='productos/', blank=True, null=True)
-=======
     imagen = models.CharField(max_length=200, blank=True, null=True)
->>>>>>> origin/rolo
     descripcion = models.TextField(blank=True)
     disponible = models.BooleanField(default=True)
 

@@ -4,10 +4,10 @@ import os
 # BASE
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SEGURIDAD (¡Recuerda cambiar esta clave en producción!)
+# SEGURIDAD
 SECRET_KEY = 'django-insecure-4$jhop^&1@abi=c)x36_u*=jsnz$*)5cvzj+k@!3_+j!(-d#*z'
 DEBUG = False
-ALLOWED_HOSTS = ['*', '.onrender.com']
+ALLOWED_HOSTS = ['*']
 
 # APLICACIONES
 INSTALLED_APPS = [
@@ -35,7 +35,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'tecnohogar.urls'
 
-# TEMPLATES
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -53,7 +52,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tecnohogar.wsgi.application'
 
-# BASE DE DATOS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -61,7 +59,6 @@ DATABASES = {
     }
 }
 
-# VALIDACIONES
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -69,32 +66,28 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# IDIOMA Y ZONA
 LANGUAGE_CODE = 'es-co'
 TIME_ZONE = 'America/Bogota'
 USE_I18N = True
 USE_TZ = True
 
-# ARCHIVOS ESTÁTICOS Y MEDIA
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR.parent / "static",
 ]
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR.parent / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR.parent, 'media')
 
-# LOGIN
 LOGIN_URL = 'login'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORREO (Configuración corregida)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'roliruana@gmail.com' # El cartero (quien envía)
-EMAIL_HOST_PASSWORD = 'ehwi yaqc evym ijuf' # ¡Cámbiala por seguridad!
-DEFAULT_FROM_EMAIL = 'roliruana@gmail.com'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
