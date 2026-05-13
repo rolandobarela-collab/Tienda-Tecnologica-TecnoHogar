@@ -6,11 +6,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SEGURIDAD
 SECRET_KEY = 'django-insecure-4$jhop^&1@abi=c)x36_u*=jsnz$*)5cvzj+k@!3_+j!(-d#*z'
-DEBUG = True
-ALLOWED_HOSTS = [
-    'tecnohogar-kzr5.onrender.com',
-    '.onrender.com',
-]
+DEBUG = False
+ALLOWED_HOSTS = ['*']
 
 # APLICACIONES
 INSTALLED_APPS = [
@@ -56,11 +53,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tecnohogar.wsgi.application'
 
+import dj_database_url
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600
+    )
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -76,29 +74,23 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [
     BASE_DIR.parent / "static",
 ]
-
 STATIC_ROOT = BASE_DIR.parent / 'staticfiles'
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR.parent, 'media')
 
 LOGIN_URL = 'login'
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # EMAIL CONFIG CON ANYMAIL Y BREVO
 EMAIL_BACKEND = "anymail.backends.brevo.EmailBackend"
 
 ANYMAIL = {
-    # Render leerá la llave desde las variables de entorno
     "BREVO_API_KEY": os.environ.get("BREVO_API_KEY"),
 }
 
-# El correo desde el que se enviarán los mensajes (debe ser el que usaste para registrarte en Brevo)
 DEFAULT_FROM_EMAIL = "oscarsantiagoalfonso79@gmail.com"
