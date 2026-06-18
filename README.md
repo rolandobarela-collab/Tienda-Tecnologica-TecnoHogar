@@ -1,68 +1,84 @@
-TecnoHogar
+# TecnoHogar
 
-- Descripción del Proyecto
+## Descripción del Proyecto
 
 TecnoHogar es una tienda virtual desarrollada con Django que permite a los usuarios registrarse, iniciar sesión, recuperar su contraseña, visualizar productos tecnológicos, agregarlos al carrito de compras y gestionar sus pedidos. El sistema cuenta con diferentes categorías de productos como computadores, tablets y productos en oferta, ofreciendo una experiencia de compra sencilla e intuitiva.
 
-- Integrantes
+---
 
-Rolando Barela Pérez
+## Integrantes
 
-- Tecnologías Utilizadas
+- Rolando Barela Pérez
+- (Agregar demás integrantes si aplica)
 
-- Frontend
+---
+
+## Tecnologías Utilizadas
+
+### Frontend
 - HTML5
 - CSS3
 - Bootstrap 5
 - JavaScript
 
-- Backend
+### Backend
 - Python
 - Django
 
-- Base de Datos
+### Base de Datos
 - SQLite3 (desarrollo)
 - PostgreSQL (producción)
 
-Despliegue
+### Despliegue
 - Render
 
-Instalación
+---
 
-1. Diseño y Maquetación
+## Instalación
+
+### 1. Diseño y Maquetación
 
 Inicialmente se realizó el diseño de la interfaz gráfica utilizando HTML, CSS y Bootstrap para definir la estructura visual de la tienda virtual.
 
-2. Instalación de Django
+### 2. Instalación de Django
 
-- pip install django
+```bash
+pip install django
+```
 
-3. Creación del Proyecto
+### 3. Creación del Proyecto
 
-- django-admin startproject tecnohogar
+```bash
+django-admin startproject tecnohogar
+```
 
-4. Creación de la Aplicación
+### 4. Creación de la Aplicación
 
-- python manage.py startapp tienda
+```bash
+python manage.py startapp tienda
+```
 
-5. Organización de Carpetas
+### 5. Organización de Carpetas
 
 Se organizaron las carpetas de plantillas y archivos estáticos para mantener una estructura ordenada del proyecto.
 
+```text
 templates/
 static/
 ├── css/
 ├── js/
 └── img/
+```
 
 ### 6. Configuración de Archivos Estáticos
 
 Se configuró Django para cargar archivos CSS, JavaScript e imágenes mediante:
 
+```html
 {% load static %}
+```
 
-
-7. Desarrollo de la Lógica de Negocio
+### 7. Desarrollo de la Lógica de Negocio
 
 Se implementaron las funcionalidades de:
 
@@ -72,44 +88,57 @@ Se implementaron las funcionalidades de:
 - Visualización de productos.
 - Carrito de compras.
 - Historial de pedidos.
-- Funciones de administrador
 
-8. Creación de la Base de Datos
+### 8. Creación de la Base de Datos
 
 Se definieron los modelos necesarios y posteriormente se generaron las migraciones.
 
-
+```bash
 python manage.py makemigrations
 python manage.py migrate
+```
 
+### 9. Creación del Administrador
 
-9. Creación del Administrador
-
+```bash
 python manage.py createsuperuser
+```
 
+### 10. Ejecución Local
 
-10. Ejecución Local
-
-
+```bash
 python manage.py runserver
+```
 
+Acceder desde:
 
-Se accede desde:
-
+```text
 http://127.0.0.1:8000
+```
 
-11. Despliegue
+### 11. Despliegue
 
 Finalmente se configuró el proyecto para producción mediante Render, utilizando PostgreSQL como base de datos y los archivos necesarios para el despliegue.
 
-Ejecución
+---
+
+## Ejecución
 
 Para ejecutar el proyecto localmente:
 
-
+```bash
 python manage.py runserver
+```
 
-Pruebas
+Luego abrir en el navegador:
+
+```text
+http://127.0.0.1:8000
+```
+
+---
+
+## Pruebas
 
 Se realizaron pruebas de:
 
@@ -122,10 +151,10 @@ Se realizaron pruebas de:
 - Carga de archivos estáticos.
 - Despliegue en producción.
 
+---
 
-
-Video
+## Video
 
 Enlace del video de sustentación:
 
-(Agregar enlace aquí)
+(https://youtu.be/OlnS3BpkMx4)
