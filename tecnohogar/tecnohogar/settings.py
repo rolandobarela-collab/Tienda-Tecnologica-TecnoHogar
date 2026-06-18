@@ -1,12 +1,15 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # BASE
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SEGURIDAD
 SECRET_KEY = 'django-insecure-4$jhop^&1@abi=c)x36_u*=jsnz$*)5cvzj+k@!3_+j!(-d#*z'
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # APLICACIONES
@@ -53,13 +56,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tecnohogar.wsgi.application'
 
+# BASE DE DATOS
 import dj_database_url
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600
-    )
-}
+
+DATABASE_URL = os.environ.get('DATABASE_URL', 'postgresql://tecnohogar_db2_user:5sWG5dAzuiryJVbaRmAeHOPCJ7dbd7LQ@dpg-d8mtlg67r5hc73a6kqc0-a.oregon-postgres.render.com/tecnohogar_db2')
+
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
@@ -86,7 +98,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR.parent, 'media')
 LOGIN_URL = 'login'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# EMAIL CONFIG CON ANYMAIL Y BREVO
+# EMAIL
 EMAIL_BACKEND = "anymail.backends.brevo.EmailBackend"
 
 ANYMAIL = {
