@@ -9,7 +9,6 @@ TecnoHogar es una tienda virtual desarrollada con Django que permite a los usuar
 ## Integrantes
 
 - Rolando Barela Pérez
-- (Agregar demás integrantes si aplica)
 
 ---
 
